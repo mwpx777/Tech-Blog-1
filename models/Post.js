@@ -5,7 +5,9 @@ class Post extends Model {
   static upvote(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
-      post_id: body.post_id
+      post_id: body.post_id,
+      article: body.article,
+      username: body.username
     }).then(() => {
       return Post.findOne({
         where: {
@@ -13,10 +15,10 @@ class Post extends Model {
         },
         attributes: [
           'id',
-          'post_url',
           'title',
-          'created_at',
-          // 'username'
+          'post_url',
+          'article',
+          'username'
 
           // ],
           // include: [
@@ -53,18 +55,14 @@ Post.init(
       validate: {
         isURL: true
       }
-      // },
-      // user_id: {
-      //   type: DataTypes.INTEGER,
-      //   references: {
-      //     model: 'user',
-      //     key: 'id'
-      //   }
-      // }
     },
-    created_at: {
+    article: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   },
 
