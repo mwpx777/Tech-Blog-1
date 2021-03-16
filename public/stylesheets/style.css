@@ -1,0 +1,38 @@
+* {
+    font-family: 'Blinker', sans-serif;
+    background: light;
+}
+
+.navbar-brand {
+    font-size: 3.5rem;
+}
+
+
+.nav-item {
+   
+    padding:  1.5rem;
+    font-size:1.5rem;
+}
+
+.card-header{
+    color: white;
+    font-size: 2rem;
+}
+
+.container {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    margin-top: 2rem;
+}
+
+.card-body{
+    border: 1px solid;
+}
