@@ -16,17 +16,18 @@ class Post extends Model {
           'post_url',
           'title',
           'created_at',
-          [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-        ],
-        include: [
-          {
-            model: models.Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            include: {
-              model: models.User,
-              attributes: ['username']
-            }
-          }
+          // 'username'
+
+          // ],
+          // include: [
+          //   {
+          //     model: models.Comment,
+          //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          //     include: {
+          //       model: models.User,
+          //       attributes: ['username']
+          //     }
+          //   }
         ]
       });
     });
@@ -52,15 +53,21 @@ Post.init(
       validate: {
         isURL: true
       }
+      // },
+      // user_id: {
+      //   type: DataTypes.INTEGER,
+      //   references: {
+      //     model: 'user',
+      //     key: 'id'
+      //   }
+      // }
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
+    created_at: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
+
   {
     sequelize,
     freezeTableName: true,

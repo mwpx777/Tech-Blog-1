@@ -1,6 +1,6 @@
 * {
     font-family: 'Blinker', sans-serif;
-    background: light;
+   
 }
 
 .navbar-brand {
@@ -9,7 +9,8 @@
 
 
 .nav-item {
-   
+    display:flex;
+   align-items: center;
     padding:  1.5rem;
     font-size:1.5rem;
 }
@@ -22,6 +23,7 @@
 .container {
     margin-top: 2rem;
     font-size: 1.2rem;
+   
 }
 
 .card-header{
@@ -35,4 +37,26 @@
 
 .card-body{
     border: 1px solid;
+}
+
+.login-form, .signup-form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.row{
+    padding: 2rem;
+    justify-content:center;
+}
+
+label, input {
+    margin: 1rem;
+}
+
+#logout {
+    border: none;
+    background:none;
+    padding:none;
+    align-items: center;
 }

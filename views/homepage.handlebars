@@ -1,15 +1,20 @@
+{{!-- <ol class="post-list"> --}}
+    {{#each posts as |post|}}
+    {{!-- <li> --}}
+        <div class="container lg-12">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h5><a href="{{post_url}}" target="_blank"></a>{{title}}</h5>
+                    <h5>Posted by {{username}} {{created_at}}</h5>
+                </div>
+                <div class="card-body">
 
-<div class="container lg-12">
-        <div class="card">
-            <div class="card-header bg-dark">
-                <h5><a href="{{post_url}}" target="_blank"></a>{{title}}</h5>
-                <h5> {{created_at}}</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                </div>
             </div>
-            <div class="card-body">
 
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-            </div>
         </div>
-        
-    </div>
+    {{!-- </li> --}}
+    {{/each}}
+{{!-- </ol> --}}
