@@ -22,9 +22,9 @@
             </div>
             <div class="card-body">
                 <form >
-                    <h4>{{comment_text}} </h4>
+                    <h4>{{post.comment_text}} </h4>
                     </br>
-                    -{{user.username}} on {{format_date createdAt}}
+                    -{{post.user_id}} on {{format_date createdAt}}
                 </form>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <h5>Add a comment!</h5>
             </div>
             <div class="card-body">
-                <div> <textarea name="comment-body" placeholder="Comment here!"></textarea>
+                <div> <textarea name="comment-body" style="width:100%" placeholder="Comment here!"></textarea>
                     {{!-- <textarea style="width: 100%" name="comment-body" placeholder="Comment here!"></textarea> --}}
                     <button class="btn btn-secondary" type="submit">submit</button>
                 </div>
