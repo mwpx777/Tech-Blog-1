@@ -4,28 +4,32 @@ const { Post, User, Comment, Vote } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
- 
+
   Post.findAll({
     attributes: [
       'id',
       'title',
-      'post_url',
       'article',
       'username',
     ],
     include: [
-    //   {
-    //     model: Comment,
-    //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-    //     include: {
-    //       model: User,
-    //       attributes: ['username']
-    //     }
-    //   },
-      {
-        model: User,
-        attributes: ['username']
-      }
+      //   {
+      //     model: Comment,
+      //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+      //     include: {
+      //       model: User,
+      //       attributes: ['username']
+      //     }
+      //   },
+      //  {
+      //   model: Post,
+      //   attributes: ['id', 'title', 'post_url', 'article', 'username'],
+
+      // },
+      // {
+      //   model: User,
+      //   attributes: ['username']
+      // }
     ]
   })
     .then(dbPostData => res.json(dbPostData))
@@ -43,12 +47,11 @@ router.get('/:id', (req, res) => {
     attributes: [
       'id',
       'title',
-      'post_url',
       'article',
       'username',
 
-      ],
-      include: [
+    ],
+    include: [
       //   {
       //     model: Comment,
       //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -57,10 +60,10 @@ router.get('/:id', (req, res) => {
       //       attributes: ['username']
       //     }
       //   },
-        {
-          model: User,
-          attributes: ['username']
-        }
+      // {
+      //   model: User,
+      //   attributes: ['username']
+      // }
     ]
   })
     .then(dbPostData => {
@@ -77,14 +80,14 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  
+
   Post.create({
     title: req.body.title,
     post_url: req.body.post_url,
     article: req.body.article,
     username: req.body.username,
-    user_id: req.session.user_id
-   
+    // user_id: req.session.user_id
+
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -119,24 +122,24 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
-  console.log('id', req.params.id);
-  Post.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
-      res.json(dbPostData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.delete('/:id', (req, res) => {
+//   console.log('id', req.params.id);
+//   Post.destroy({
+//     where: {
+//       id: req.params.id
+//     }
+//   })
+//     .then(dbPostData => {
+//       if (!dbPostData) {
+//         res.status(404).json({ message: 'No post found with this id' });
+//         return;
+//       }
+//       res.json(dbPostData);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;

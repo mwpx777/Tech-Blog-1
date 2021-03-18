@@ -1,1 +1,42 @@
-<h1> this is working </h1>
+
+<div class="container lg-12">
+    <div class="card">
+        <div class="card-header bg-dark">
+
+            <h5>Create New Post</h5>
+
+        </div>
+        <div class="card-body">
+            <p class="card-text">Title</p>
+            <form class="comment-form">
+                <div>
+                    <textarea style="width: 100%" name="comment-body"></textarea>
+                </div>
+                <p class="card-text">Content</p>
+                <form class="comment-form">
+                    <div>
+                        <textarea style="width: 100%" name="comment-body"></textarea>
+                    </div>
+                    <button class="btn btn-secondary" type="submit">submit</button>
+                </form>
+
+        </div>
+    </div>
+</div>
+
+{{#if posts.length}}
+<section>
+    <h2>Your Posts</h2>
+    <ol>
+        {{#each posts as |post|}}
+        <li>
+            {{> post-info post}}
+          
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+        {{/each}}
+    </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-post.js"></script>

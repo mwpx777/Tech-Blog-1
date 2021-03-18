@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-// const { Post, User, Comment, Vote } = require('../models');
+const { Post, User, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
-// router.get('/', withAuth, (req, res) => {
-router.get('/',  (req, res) => {
+router.get('/', withAuth, (req, res) => {
+  // router.get('/',  (req, res) => {
   console.log(req.session);
 
   Post.findAll({
@@ -13,25 +13,34 @@ router.get('/',  (req, res) => {
       user_id: req.session.user_id
     },
     attributes: [
+
       'id',
-      'post_url',
       'title',
-      'created_at',
-      
+      'article',
+      'username',
+
     ],
     include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
+      //   {
+      //     model: Comment,
+      //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+      //     include: {
+      //       model: User,
+      //       attributes: ['username']
+      //     }
+      //   },
+    //   {
+    //     model: Post,
+    //     attributes: ['id', 'title', 'article', 'username'],
+    //     include: {
+    //       model: User,
+    //       attributes: ['username']
+    //     }
+    //   },
+    //   {
+    //     model: User,
+    //     attributes: ['username']
+    //   }
     ]
   })
     .then(dbPostData => {
