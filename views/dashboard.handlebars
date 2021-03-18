@@ -1,4 +1,4 @@
-<section>
+<!--<section>
     <div class="container lg-12">
         <h2>Your Posts</h2>
         {{#each posts as |post|}}
@@ -20,7 +20,42 @@
         {{/each}}
     </div>
 
-</section>
+</section>-->
+
+<div class="container lg-12">
+    <h5>Your Posts</h5>
+    {{#each posts as |post|}}
+    <div class="card">
+        <div class="card-header bg-dark">
+
+
+        </div>
+        <div class="card-body">
+                <div name="postId">Post {{post.id}}</div>
+
+            <p class="card-text">Title</p>
+            <form class="edit-post-form">
+                <div>
+                    <textarea name="post-title" style="width: 100%">{{post.title}}</textarea>
+                </div>
+                <p class="card-text">Content</p>
+
+                <div>
+                    <textarea name="post-article" style="width: 100%">{{post.article}}</textarea>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-secondary updatePostBtn" type="submit" update-id="{{id}}">Update
+                        Post</button>
+                    <button class="btn btn-secondary deletePostBtn" delete-id="{{id}}">Delete Post</button>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+    {{/each}}
+</div>
 
 
 <div class="container lg-12">
@@ -36,16 +71,16 @@
             <form class="new-post-form">
 
                 <div>
-                    <textarea  name="post-title" style="width: 100%"></textarea>
+                    <textarea name="post-title" style="width: 100%"></textarea>
                 </div>
                 <p class="card-text">Content</p>
 
                 <div>
-                    <textarea  name="post-article" style="width: 100%"></textarea>
+                    <textarea name="post-article" style="width: 100%"></textarea>
                 </div>
                 <p class="card-text">Username</p>
                 <div>
-                    <textarea  name="post-username" style="width: 100%"></textarea>
+                    <textarea name="post-username" style="width: 100%"></textarea>
                 </div>
 
                 <button class="btn btn-secondary" type="submit">submit</button>
@@ -76,5 +111,5 @@
 
 
 
-
+<script src="/javascript/edit-post.js"></script>
 <script src="/javascript/add-post.js"></script>

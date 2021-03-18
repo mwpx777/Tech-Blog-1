@@ -1,13 +1,19 @@
-async function editFormHandler(event) {
+async function updateFormHandler(event) {
   console.log('edit button clicked')
   event.preventDefault();
+  
+  const title = document.querySelector('textarea[name="post-title"]').value.trim();
+  const article = document.querySelector('textarea[name="post-article"]').value.trim();
+  const articleid = document.querySelector('div[name="postId"]').value.trim();
+  
+  
+  // if (event.target.hasAttribute('update-id')) {
+    // const id = event.target.getAttribute('update-id');
+    // const title = event.target.getAttribute('post-title').value.trim();
+    // const article = event.target.getAttribute('post-article').value.trim();
 
-  if (event.target.hasAttribute('update-id')) {
-
-    const id = event.target.getAttribute('update-id');
-    const title = event.target.getAttribute('title').value.trim();
-    const article = event.target.getAttribute('article').value.trim();
-    console.log(id, title,)
+    if(id && title && article ){
+    console.log(id, title, article)
     const response = await fetch(`/api/edit-post/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -56,5 +62,5 @@ document
 .addEventListener('click', deleteFormHandler);
 
 document
-.querySelector('.editPostBtn')
-.addEventListener('click', editFormHandler);
+.querySelector('.updatePostBtn')
+.addEventListener('click', updateFormHandler);
