@@ -7,7 +7,7 @@ async function editFormHandler(event) {
     const id = event.target.getAttribute('update-id');
     const title = event.target.getAttribute('title').value.trim();
     const article = event.target.getAttribute('article').value.trim();
-
+    console.log(id, title,)
     const response = await fetch(`/api/edit-post/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -51,6 +51,10 @@ async function deleteFormHandler(event) {
 };
 
 
-document.querySelector('.deletePostBtn').addEventListener('click', deleteFormHandler);
+document
+.querySelector('.deletePostBtn')
+.addEventListener('click', deleteFormHandler);
 
-document.querySelector('.editPostBtn').addEventListener('click', editFormHandler);
+document
+.querySelector('.editPostBtn')
+.addEventListener('click', editFormHandler);
