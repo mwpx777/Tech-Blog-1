@@ -3,8 +3,9 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
-// router.get('/', withAuth, (req, res) => {
+
+
+// module.exports = router;
 router.get('/',  (req, res) => {
   // console.log(req.session);
 
@@ -21,31 +22,31 @@ router.get('/',  (req, res) => {
 
     ],
     include: [
-      //   {
-      //     model: Comment,
-      //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-      //     include: {
-      //       model: User,
-      //       attributes: ['username']
-      //     }
-      //   },
-    //   {
-    //     model: Post,
-    //     attributes: ['id', 'title', 'article', 'username'],
-    //     include: {
-    //       model: User,
-    //       attributes: ['username']
-    //     }
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
+        {
+          model: Comment,
+          // attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          // include: {
+          //   model: User,
+          //   attributes: ['username']
+          // }
+        },
+      // {
+      //   model: Post,
+      //   attributes: ['id', 'title', 'article', 'username'],
+      //   include: {
+      //     model: User,
+      //     attributes: ['username']
+      //   }
+      // },
+      {
+        model: User,
+        attributes: ['username']
+      }
     ]
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      res.render('edit', { posts, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

@@ -1,3 +1,27 @@
+<section>
+    <div class="container lg-12">
+        <h2>Your Posts</h2>
+        {{#each posts as |post|}}
+            <div class="container lg-12">
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        
+                        {{!-- <a href="/edit/{{id}}" <h5>{{title}}</h5></a> --}}
+                        <a href="/edit" <h5>{{title}}</h5></a>
+                        {{!-- <a href="/post/{{id}}" <h5>{{title}}</h5></a> --}}
+                      
+                        {{!-- <h5>Posted by {{username}} on {{format_date created_at}}</h5> --}}
+                    </div>
+                    {{!-- <div class="card-body">
+                        <p class="card-text">{{article}}</p>
+                    </div> --}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+</section>
+
 
 <div class="container lg-12">
     <div class="card">
@@ -7,36 +31,50 @@
 
         </div>
         <div class="card-body">
+
             <p class="card-text">Title</p>
-            <form class="comment-form">
+            <form class="new-post-form">
+
                 <div>
-                    <textarea style="width: 100%" name="comment-body"></textarea>
+                    <textarea style="width: 100%" name="post-title"></textarea>
                 </div>
                 <p class="card-text">Content</p>
-                <form class="comment-form">
-                    <div>
-                        <textarea style="width: 100%" name="comment-body"></textarea>
-                    </div>
-                    <button class="btn btn-secondary" type="submit">submit</button>
-                </form>
+
+                <div>
+                    <textarea style="width: 100%" name="post-article"></textarea>
+                </div>
+                <p class="card-text">Username</p>
+                <div>
+                    <textarea style="width: 100%" name="post-username"></textarea>
+                </div>
+
+                <button class="btn btn-secondary" type="submit">submit</button>
+            </form>
 
         </div>
     </div>
 </div>
 
-{{#if posts.length}}
-<section>
+{{!-- {{#if posts.length}} --}}
+{{!-- <section>
     <h2>Your Posts</h2>
     <ol>
         {{#each posts as |post|}}
         <li>
             {{> post-info post}}
-          
+
             <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
         </li>
         {{/each}}
     </ol>
-</section>
-{{/if}}
+</section> --}}
+{{!-- {{/if}} --}}
+
+{{!-- {{#if posts.length}} --}}
+
+{{!-- {{/if}} --}}
+
+
+
 
 <script src="/javascript/add-post.js"></script>

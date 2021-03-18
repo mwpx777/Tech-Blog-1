@@ -13,16 +13,16 @@ router.get('/', (req, res) => {
       'username',
 
     ],
-    // include: [
-    //   {
-    //     model: Comment,
-    //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-    //     include: {
-    //       model: User,
-    //       attributes: ['username']
-    //     }
-    //   }
-    // ]
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      }
+    ]
   })
     .then(dbPostData => {
       // pass a single post object into the homepage template
@@ -59,21 +59,22 @@ router.get('/post/:id', (req, res) => {
 
     ],
     include: [
-      // {
-      //   model: Comment,
-      //   attributes: ['id', 'title', 'article', 'created_at', 'username'],
-      //   include: {
-      //     model: User,
-      //     attributes: ['username']
-      //   }
-      // },
-      // {
-      //   model: User,
-      //   attributes: ['username']
-      // }
+      {
+        model: Comment,
+        // attributes: ['id', 'title', 'article', 'created_at', 'username'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        // attributes: ['username']
+      }
     ]
   })
     .then(dbPostData => {
+      console.log(dbPostData)
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
@@ -81,7 +82,7 @@ router.get('/post/:id', (req, res) => {
 
       // serialize the data
       const post = dbPostData.get({ plain: true });
-
+console.log(post)
       // pass data to template
       res.render('single-post', { post });
     })

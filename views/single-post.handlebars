@@ -1,4 +1,4 @@
-<div class="container lg-12"> 
+<div class="container lg-12">
     <div class="card">
         <div class="card-header bg-dark">
             <h5>{{post.title}}</h5>
@@ -6,33 +6,54 @@
         </div>
         <div class="card-body">
             <p class="card-text">{{post.article}}</p>
-            <form class="comment-form">
-                <div>
-                    <textarea style="width: 100%" name="comment-body" placeholder="Comment here!"></textarea>
-               
-                <button class="btn btn-secondary" type="submit">submit</button>
-                 </div>
-            </form>
         </div>
     </div>
 </div>
-<div class="comments">
-  {{#each post.comments}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}} on {{created_at}}
+
+
+{{!-- {{> comments post.comments}} --}}
+
+<div class="container lg-12">
+    <div class="comments">
+        {{#each post.comments}}
+        <div class="card">
+            <div class="card-header bg-dark">
+
+            </div>
+            <div class="card-body">
+                <form >
+                    <h4>{{comment_text}} </h4>
+                    </br>
+                    -{{user.username}} on {{format_date createdAt}}
+                </form>
+            </div>
+        </div>
+        {{/each}}
     </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
-  {{/each}}
 </div>
 
 
+{{!-- {{#if loggedIn}} --}}
+<div class="container lg-12">
+    <div class="card">
+        <form class="comment-form">
+            <div class="card-header bg-dark">
+                <h5>Add a comment!</h5>
+            </div>
+            <div class="card-body">
+                <div>
+                    <textarea style="width: 100%" name="comment-body" placeholder="Comment here!"></textarea>
+                    <button class="btn btn-secondary" type="submit">submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{!-- {{/if}} --}}
 
 
-{{!-- {{#if loggedIn}}   --}}
+
+{{!-- {{#if loggedIn}} --}}
 <script src="/javascript/comment.js"></script>
-
- {{!-- {{/if}} --}}
+{{!-- {{/if}} --}}

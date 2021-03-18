@@ -1,0 +1,83 @@
+{{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
+{{!-- <div class="container lg-12">
+    <div class="card">
+        <div class="card-header bg-dark">
+            <h5>Edit Post</h5>
+        </div>
+        <div class="card-body">
+            <form class="edit-post-form">
+                <div>
+                    <p>Title</p>
+                    <input type="text" name="post-title" style="width:100%" value="{{post.title}}" />
+                    <p>Article</p>
+                    <input type="text" name="post-article" style="width:100%" value="{{post.article}}" />
+
+                </div>
+                <button class="btn btn-secondary" type="submit" id="edit-post-btn">Save Post</button>
+                <button type="delete" class="btn btn-secondary " id="delete-post-btn">Delete Post</button>
+
+            </form>
+        </div>
+    </div>
+</div> --}}
+
+ <!--<div class="container lg-12">
+    <h5>Edit Post</h5>
+    <div class="card">
+        <div class="card-header bg-dark">
+        </div>
+        <div class="card-body">
+            <form class="edit-post-form">
+                <div>
+                    <p>Title</p>
+                    <textarea>{{title}}</textarea>
+                    {{!-- <input type="text" name="post-title" style="width:100%" value="{{post.title}}" /> --}}
+                    <p>Article</p>
+                    <textarea>{{article}}</textarea>
+                    {{!-- <input type="text" name="post-article" style="width:100%" value="{{post.article}}" /> --}}
+
+                </div>
+                <button class="btn btn-secondary" type="submit" id="edit-post-btn">Save Post</button>
+                <button type="delete" class="btn btn-secondary " id="delete-post-btn">Delete Post</button>
+
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="container lg-12">
+   
+    <div class="card">
+        <div class="card-header bg-dark">
+             <h5>Edit Post</h5>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <textarea class="form-control" id="title" style="width:80%">{{title}}</textarea>
+                    {{!-- <input type="text" name="post-title" style="width:100%" value="{{post.title}}" /> --}}
+                </div>
+                <div class="form-group">
+                    <label for="article">Article</label>
+                    <textarea class="form-control" id="article" style="width:80%">{{article}}</textarea>
+                    {{!-- <input type="text" name="post-article" style="width:100%" value="{{post.article}}" /> --}}
+                </div>
+            </form>
+            <div class="buttons">
+                <button class="btn btn-secondary updatePostBtn" type="submit" update-id="{{id}}">Update Post</button>
+                <button class="btn btn-secondary deletePostBtn" delete-id="{{id}}">Delete Post</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    {{!-- {{>comment post.comments}} --}}
+
+    <script src="/javascript/edit-post.js"></script>
+    {{!-- <script src="/javascript/delete-post.js"></script>
+    <script src="/javascript/comment.js"></script> --}}
