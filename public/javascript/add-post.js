@@ -12,7 +12,8 @@ async function newFormHandler(event) {
       body: JSON.stringify({
         title,
         article,
-        username
+        username,
+        userId
       }),
       headers: {
         'Content-Type': 'application/json'

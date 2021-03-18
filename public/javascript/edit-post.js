@@ -2,13 +2,6 @@ async function editFormHandler(event) {
   console.log('edit button clicked')
   event.preventDefault();
 
-  // const title = document.querySelector('input[name="post-title"]').value.trim();
-  // const article = document.querySelector('input[name="post-article"]').value.trim();
-  // const id = window.location.toString().split('/')[
-  //   window.location.toString().split('/').length - 1
-  // ];
-
-
   if (event.target.hasAttribute('update-id')) {
 
     const id = event.target.getAttribute('update-id');
@@ -42,11 +35,8 @@ async function deleteFormHandler(event) {
 
   if (event.target.hasAttribute('delete-id')) {
 
-    // const id = window.location.toString().split('/');[
-    //   window.location.toString().split('/').length - 1
-    // ];
     const id = event.target.hasAttribute('delete-id');
-    
+
 
     const response = await fetch(`/api/edit-post/${id}`, {
       method: 'DELETE',
