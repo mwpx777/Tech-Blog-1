@@ -15,38 +15,47 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
+<div class="flex-wrapper">
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Tech Blog</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Tech Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">LogIn</a>
-                </li>
-                <li class="nav-item">
-                    <button id="logout" class="nav-link">LogOut</button>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">LogIn</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="logout" class="nav-link">LogOut</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            {{{body}}}
+        </main>
+
+    </body>
+    <footer>
+
+        <div class="bg-dark" id="footer">
+            <h3 class="text-light">&copy; 2021 by Mark Peterson </h3>
         </div>
-    </nav>
-    <main>
-        {{{body}}}
-    </main>
-    <script src="/javascript/logout.js"></script>
+    </footer>
+</div>
 
-</body>
+<script src="/javascript/logout.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
     integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
     crossorigin="anonymous"></script>

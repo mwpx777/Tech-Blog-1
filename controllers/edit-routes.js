@@ -4,40 +4,40 @@ const { Post, User, Comment, } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-
-// module.exports = router;
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   // console.log(req.session);
-
   Post.findOne({
     where: {
-      user_id: req.session.user_id
+      //  user_id: req.session.user_id,
+      id: req.params.id
     },
-    attributes: [
+    // attributes: [
 
-      'id',
-      'title',
-      'article',
-      'username',
-      'user_id'
+    //   'id',
+    //   'title',
+    //   'article',
+    //   'username',
+    //   'user_id',
+    //   'created_at'
 
-    ],
-    include: [
-      {
-        model: Comment,
+    // ],
+    // include: [
+    //   {
+    //     model: Comment,
 
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
+    //   },
+    //   {
+    //     model: User,
+    //     attributes: ['username']
+    //   }
+    // ]
   })
     .then(dbPostData => {
       const posts = dbPostData.get({ plain: true });
-  // console.log(dbPostData)
-  res.render('edit', { post: posts, loggedIn: true });
-  console.log(posts)
+      console.log(dbPostData)
+      res.render('edit', { posts: posts, loggedIn: true });
+  
+  // console.log(posts)
 })
   .catch(err => {
     console.log(err);
@@ -45,17 +45,18 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth,  (req, res) => {
   Post.update(
-    {
-      title: req.body.title,
-      content: req.body.content
-    },
     {
       where: {
         id: req.params.id
       }
-    }
+    },
+    {
+      title: req.body.title,
+      article: req.body.article
+      // content: req.body.content
+    },
   )
     .then(dbPostData => {
       if (!dbPostData) {
@@ -70,8 +71,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// router.delete('/:id', withAuth, (req, res) => {
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({
     where: {

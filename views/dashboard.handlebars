@@ -1,3 +1,5 @@
+
+{{#if posts.length}}
 <section>
     <div class="container lg-12">
         <h2>Your Posts</h2>
@@ -5,60 +7,23 @@
             <div class="container lg-12">
                 <div class="card">
                     <div class="card-header bg-dark">
-                        
-                         <a href="/edit/{{id}}" <h5>{{title}}</h5></a> 
-                        {{!-- <a href="/edit" <h5>{{title}}</h5></a> 
-                         <a href="/post/{{id}}" <h5>{{title}}</h5></a> 
+                        <h5>{{post.title}}</h5>
                       
-                         <h5>Posted by {{username}} on {{format_date created_at}}</h5> --}}
+                       {{!-- <h5>{{format_date created_at}}</h5>   --}}
                     </div>
                     <div class="card-body">
-                        <p class="card-text">{{article}}</p>
-                    </div> 
+                        <p class="card-text">{{post.article}}</p>
+                      <a href="/edit/{{post.id}}">Edit Post</a> 
+                     
+                    </div>
                 </div>
             </div>
         {{/each}}
     </div>
-
 </section>
+{{/if}}
 
- {{!-- <div class="container lg-12">
-    <h5>Your Posts</h5>
-    {{#each posts as |post|}}
-    <div class="card">
-        <div class="card-header bg-dark">
-
-
-        </div>
-        <div class="card-body">
-                <div name="postId">Post {{post.id}}</div>
-
-            <p class="card-text">Title</p>
-            <form class="edit-post-form">
-                <div>
-                    <textarea name="post-title" style="width: 100%">{{post.title}}</textarea>
-                </div>
-                <p class="card-text">Content</p>
-
-                <div>
-                    <textarea name="post-article" style="width: 100%">{{post.article}}</textarea>
-                </div>
-                <div class="buttons">
-                    <button class="btn btn-secondary updatePostBtn" type="submit" update-id="{{id}}">Update
-                        Post</button>
-                    <button class="btn btn-secondary deletePostBtn" delete-id="{{id}}">Delete Post</button>
-                </div>
-
-
-            </form>
-
-        </div>
-    </div>
-    {{/each}}
-</div>  --}}
-
-
- <div class="container lg-12">
+<div class="container lg-12">
     <div class="card">
         <div class="card-header bg-dark">
 
@@ -73,7 +38,7 @@
                 <div>
                     <textarea name="post-title" style="width: 100%"></textarea>
                 </div>
-                <p class="card-text">Content</p>
+                <p class="card-text">Article</p>
 
                 <div>
                     <textarea name="post-article" style="width: 100%"></textarea>
@@ -85,31 +50,13 @@
 
                 <button class="btn btn-secondary" type="submit">submit</button>
             </form>
-
         </div>
     </div>
-</div> 
-
-{{!-- {{#if posts.length}} --}}
-{{!-- <section>
-    <h2>Your Posts</h2>
-    <ol>
-        {{#each posts as |post|}}
-        <li>
-            {{> post-info post}}
-
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-        </li>
-        {{/each}}
-    </ol>
-</section> --}}
-{{!-- {{/if}} --}}
-
-{{!-- {{#if posts.length}} --}}
-
-{{!-- {{/if}} --}}
+</div>
 
 
 
- <script src="/javascript/add-post.js"></script>  
-{{!-- <script src="/javascript/edit-post.js"></script> --}}
+
+<script src="/javascript/add-post.js"></script>
+
+<script src="/javascript/edit-post.js"></script>
