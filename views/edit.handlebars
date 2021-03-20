@@ -1,21 +1,21 @@
 
  {{#if loggedIn}}
 <div class="container lg-12">
-                
+       <div id="dataHolder" data-id="{{id}}"></div>         
 
     <div class="card">
         <div class="card-header bg-dark">
-            <h5>Edit Post #{{posts.id}}</h5>
+            <h5>Edit Post #{{post.id}}</h5>
         </div>
         <div class="card-body">
             <form>
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <textarea class="form-control" id="title" style="width:90%">{{posts.title}}</textarea>
+                    <textarea name="post-title" class="form-control" id="title" style="width:90%">{{post.title}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="article">Article</label>
-                    <textarea class="form-control" id="article" style="width:90%">{{posts.article}}</textarea>
+                    <textarea name="post-article" class="form-control" id="article" style="width:90%">{{post.article}}</textarea>
                 </div>
             </form>
             <div class="buttons">

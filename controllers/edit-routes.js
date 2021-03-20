@@ -6,10 +6,11 @@ const withAuth = require('../utils/auth');
 
 router.get('/:id', withAuth, (req, res) => {
   // console.log(req.session);
+  const id = req.params.id;
   Post.findOne({
     where: {
       //  user_id: req.session.user_id,
-      id: req.params.id
+      id: id
     },
     // attributes: [
 
@@ -33,30 +34,33 @@ router.get('/:id', withAuth, (req, res) => {
     // ]
   })
     .then(dbPostData => {
-      const posts = dbPostData.get({ plain: true });
+      const post = dbPostData.get({ plain: true });
       console.log(dbPostData)
-      res.render('edit', { posts: posts, loggedIn: true });
-  
-  // console.log(posts)
-})
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+      res.render('edit', { post: post, id: id, loggedIn: true });
+
+      // console.log(posts)
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-router.put('/:id', withAuth,  (req, res) => {
+router.put('/update', withAuth, (req, res) => {
+  console.log(req.body);
+  
   Post.update(
     {
-      where: {
-        id: req.params.id
-      }
+      title: req.body.title,
+      article: req.body.article,
+      // id: req.params.id
     },
     {
-      title: req.body.title,
-      article: req.body.article
-      // content: req.body.content
+      where: {
+        id: req.body.id
+      }
     },
+  
   )
     .then(dbPostData => {
       if (!dbPostData) {
@@ -71,8 +75,10 @@ router.put('/:id', withAuth,  (req, res) => {
     });
 });
 
-router.delete('/:id', withAuth, (req, res) => {
-  console.log('id', req.params.id);
+router.delete('/delete/:id', withAuth, (req, res) => {
+  // console.log('id', req.params.id);
+ 
+   
   Post.destroy({
     where: {
       id: req.params.id
