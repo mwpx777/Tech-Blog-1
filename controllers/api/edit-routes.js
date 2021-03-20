@@ -3,17 +3,11 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, } = require('../models');
 const withAuth = require('../utils/auth');
 
-
-
-
-// module.exports = router;
 router.get('/',  (req, res) => {
-  // console.log(req.session);
+ 
 
   Post.findAll({
-    // where: {
-    //   user_id: req.session.user_id
-    // },
+ 
     attributes: [
 
       'id',
