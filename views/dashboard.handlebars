@@ -1,4 +1,4 @@
-<!--<section>
+<section>
     <div class="container lg-12">
         <h2>Your Posts</h2>
         {{#each posts as |post|}}
@@ -6,23 +6,23 @@
                 <div class="card">
                     <div class="card-header bg-dark">
                         
-                        {{!-- <a href="/edit/{{id}}" <h5>{{title}}</h5></a> --}}
-                        <a href="/edit" <h5>{{title}}</h5></a>
-                        {{!-- <a href="/post/{{id}}" <h5>{{title}}</h5></a> --}}
+                         <a href="/edit/{{id}}" <h5>{{title}}</h5></a> 
+                        {{!-- <a href="/edit" <h5>{{title}}</h5></a> 
+                         <a href="/post/{{id}}" <h5>{{title}}</h5></a> 
                       
-                        {{!-- <h5>Posted by {{username}} on {{format_date created_at}}</h5> --}}
+                         <h5>Posted by {{username}} on {{format_date created_at}}</h5> --}}
                     </div>
-                    {{!-- <div class="card-body">
+                    <div class="card-body">
                         <p class="card-text">{{article}}</p>
-                    </div> --}}
+                    </div> 
                 </div>
             </div>
         {{/each}}
     </div>
 
-</section>-->
+</section>
 
-<div class="container lg-12">
+ {{!-- <div class="container lg-12">
     <h5>Your Posts</h5>
     {{#each posts as |post|}}
     <div class="card">
@@ -55,10 +55,10 @@
         </div>
     </div>
     {{/each}}
-</div>
+</div>  --}}
 
 
-<div class="container lg-12">
+ <div class="container lg-12">
     <div class="card">
         <div class="card-header bg-dark">
 
@@ -88,7 +88,7 @@
 
         </div>
     </div>
-</div>
+</div> 
 
 {{!-- {{#if posts.length}} --}}
 {{!-- <section>
@@ -111,5 +111,5 @@
 
 
 
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/add-post.js"></script>
+ <script src="/javascript/add-post.js"></script>  
+{{!-- <script src="/javascript/edit-post.js"></script> --}}

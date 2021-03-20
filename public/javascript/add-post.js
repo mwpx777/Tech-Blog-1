@@ -4,9 +4,9 @@ async function newFormHandler(event) {
     const title = document.querySelector('textarea[name="post-title"]').value.trim();
     const article = document.querySelector('textarea[name="post-article"]').value.trim();
     const username = document.querySelector('textarea[name="post-username"]').value.trim();
+    console.log(title, article, username);
 
     if(title && article && username){
-  // console.log(title, article, username);
     const response = await fetch(`/api/posts`, {
       method: 'POST',
       body: JSON.stringify({

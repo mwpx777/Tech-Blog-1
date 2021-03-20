@@ -1,10 +1,10 @@
 async function updateFormHandler(event) {
-  console.log('edit button clicked')
   event.preventDefault();
+  console.log('edit button clicked')
   
   const title = document.querySelector('textarea[name="post-title"]').value.trim();
   const article = document.querySelector('textarea[name="post-article"]').value.trim();
-  const articleid = document.querySelector('div[name="postId"]').value.trim();
+  const id = document.querySelector('div[name="postId"]').value.trim();
   
   
   // if (event.target.hasAttribute('update-id')) {
