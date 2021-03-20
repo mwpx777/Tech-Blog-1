@@ -1,23 +1,20 @@
-
 {{#if posts.length}}
 <section>
     <div class="container lg-12">
         <h2>Your Posts</h2>
         {{#each posts as |post|}}
-            <div class="container lg-12">
-                <div class="card">
-                    <div class="card-header bg-dark">
-                        <h5>{{post.title}}</h5>
-                      
-                       {{!-- <h5>{{format_date created_at}}</h5>   --}}
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">{{post.article}}</p>
-                      <a href="/edit/{{post.id}}">Edit Post</a> 
-                     
-                    </div>
+        <div class="container lg-12">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <h5>{{post.title}}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{post.article}}</p>
+                    <a href="/edit/{{post.id}}">Edit Post</a>
+
                 </div>
             </div>
+        </div>
         {{/each}}
     </div>
 </section>

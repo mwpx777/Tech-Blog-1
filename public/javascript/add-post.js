@@ -13,7 +13,7 @@ async function newFormHandler(event) {
         title,
         article,
         username,
-        // userId
+       
       }),
       headers: {
         'Content-Type': 'application/json'

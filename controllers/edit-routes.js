@@ -5,40 +5,20 @@ const withAuth = require('../utils/auth');
 
 
 router.get('/:id', withAuth, (req, res) => {
-  // console.log(req.session);
+
   const id = req.params.id;
   Post.findOne({
     where: {
-      //  user_id: req.session.user_id,
+   
       id: id
     },
-    // attributes: [
-
-    //   'id',
-    //   'title',
-    //   'article',
-    //   'username',
-    //   'user_id',
-    //   'created_at'
-
-    // ],
-    // include: [
-    //   {
-    //     model: Comment,
-
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
-    // ]
+  
   })
     .then(dbPostData => {
       const post = dbPostData.get({ plain: true });
       console.log(dbPostData)
       res.render('edit', { post: post, id: id, loggedIn: true });
 
-      // console.log(posts)
     })
     .catch(err => {
       console.log(err);
@@ -53,7 +33,7 @@ router.put('/update', withAuth, (req, res) => {
     {
       title: req.body.title,
       article: req.body.article,
-      // id: req.params.id
+    
     },
     {
       where: {
@@ -76,7 +56,7 @@ router.put('/update', withAuth, (req, res) => {
 });
 
 router.delete('/delete/:id', withAuth, (req, res) => {
-  // console.log('id', req.params.id);
+
  
    
   Post.destroy({

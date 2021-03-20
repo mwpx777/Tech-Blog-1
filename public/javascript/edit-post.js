@@ -7,19 +7,10 @@ async function updateFormHandler(event) {
   const id = document.querySelector('div#dataHolder').dataset.id
   
   console.log(id);
-  
-
-  // if (event.target.hasAttribute('update-id')) {
-    // const id = event.target.getAttribute('update-id');
-    // const title = event.target.getAttribute('post-title').value.trim();
-    // const article = event.target.getAttribute('post-article').value.trim();
-
-    // if(id && title && article ){
-
+   
     if( title && article ){
     console.log( title, article)
-    // const response = await fetch(`/api/edit-routes/${id}`, {
-    const response = await fetch(`/edit/update`, {
+     const response = await fetch(`/edit/update`, {
   
       method: 'PUT',
       body: JSON.stringify({
@@ -40,15 +31,13 @@ console.log(response);
   }
 };
 
-
-
 async function deleteFormHandler(event) {
   console.log('delete button clicked')
   event.preventDefault();
 
   if (event.target.hasAttribute('delete-id')) {
 
-    // const id = event.target.hasAttribute('delete-id');
+   
     const id = document.querySelector('div#dataHolder').dataset.id
 
     const response = await fetch(`/edit/delete/` + id, {
